@@ -16,7 +16,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     companion object{
-        var USER_TOKEN : String? = ""
+        var USER_TOKEN= ""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
