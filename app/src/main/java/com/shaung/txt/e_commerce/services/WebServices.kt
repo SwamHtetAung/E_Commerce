@@ -12,8 +12,9 @@
     interface WebServices {
             @GET("cats")
             fun getAllCat() : Call<List<Category>>
-
             @FormUrlEncoded
             @POST("login")
-            fun loginUser(@Field("email") email: String, @Field("password") password : String) : Call<Token>
+            fun loginUser(@Field("email") email : String,
+                          @Field("password") password : String
+            ):Call<Token>
 }

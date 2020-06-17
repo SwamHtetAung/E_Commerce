@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.shaung.txt.e_commerce.modals.Category
 import com.shaung.txt.e_commerce.modals.Token
 import com.shaung.txt.e_commerce.services.ServiceBuilder
@@ -15,9 +14,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-    companion object{
-        var USER_TOKEN= ""
+    companion object {
+        var USER_TOKEN = ""
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,11 +25,12 @@ class MainActivity : AppCompatActivity() {
         tvLoginAds.isSelected = true
 
         btnLogin.setOnClickListener {
-            val email = etLoginEmail.toString()
-            val password = etLoginPassword.toString()
+            val email = etLoginEmail.text.toString()
+            val password = etLoginPassword.text.toString()
 //            Toast.makeText(this, "\n$email  \n$password", Toast.LENGTH_LONG).show()
 
             loginAUser(email, password)
+
         }
 
         btnLoginCancel.setOnClickListener {
@@ -44,22 +45,24 @@ class MainActivity : AppCompatActivity() {
         getAllCategories()
     }
 
+
     private fun loginAUser(email : String, pass : String){
         val services : WebServices = ServiceBuilder.buildService(WebServices::class.java)
         val responseLogin : Call<Token> = services.loginUser(email, pass)
 
         responseLogin.enqueue(object : Callback<Token>{
             override fun onFailure(call: Call<Token>, t: Throwable) {
-                Log.d("my_message", t.message)
+                Log.d("my_message",t.message)
             }
 
             override fun onResponse(call: Call<Token>, response: Response<Token>) {
-                var token : Token = response.body()!!
+                val token : Token = response.body()!!
                 USER_TOKEN = token.token
                 Log.d("my_message", token.token)
             }
 
         })
+
     }
 
 
