@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<Token>, response: Response<Token>) {
                 var token : Token = response.body()!!
+                USER_TOKEN = token.token
                 Log.d("my_message", token.token)
             }
 
