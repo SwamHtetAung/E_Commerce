@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/regEmail" />
 
     <Button
-        android:background="@drawable/round_corner"
+        android:background="@drawable/rounded_button_corner"
         android:backgroundTint="@color/buttonBackground"
         android:textColor="@color/buttonText"
         android:id="@+id/btnRegister"
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:background="@drawable/round_corner"
+        android:background="@drawable/rounded_button_corner"
         android:backgroundTint="@color/buttonBackground"
         android:text="Cancel"
         android:textColor="@color/buttonText"
