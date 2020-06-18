@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_register.*
 
-class Register : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        supportActionBar?.setTitle("Register")
+        supportActionBar?.setTitle("RegisterActivity")
 
         btnRegister.setOnClickListener {
             val username = regUserName.text
@@ -27,7 +27,7 @@ class Register : AppCompatActivity() {
         }
 
         regTextViewToLogin.setOnClickListener {
-            val intent = Intent(this@Register, MainActivity::class.java)
+            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
         }
     }

@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.shaung.txt.e_commerce.libby.H
+import com.shaung.txt.e_commerce.libby.H.Companion.L
+import com.shaung.txt.e_commerce.libby.H.Companion.USER_TOKEN
 import com.shaung.txt.e_commerce.modals.Category
 import com.shaung.txt.e_commerce.modals.Token
 import com.shaung.txt.e_commerce.services.ServiceBuilder
@@ -13,11 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
-    companion object {
-        var USER_TOKEN = ""
-    }
-
+class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         etTextViewToRegister.setOnClickListener {
-            val intent = Intent(this@MainActivity, Register::class.java)
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
         getAllCategories()
@@ -52,13 +51,13 @@ class MainActivity : AppCompatActivity() {
 
         responseLogin.enqueue(object : Callback<Token>{
             override fun onFailure(call: Call<Token>, t: Throwable) {
-                Log.d("my_message",t.message)
+                L(t.message!!)
             }
 
             override fun onResponse(call: Call<Token>, response: Response<Token>) {
                 val token : Token = response.body()!!
                 USER_TOKEN = token.token
-                Log.d("my_message", token.token)
+                L(token.token)
             }
 
         })
@@ -72,15 +71,15 @@ class MainActivity : AppCompatActivity() {
 
         responseCategory.enqueue(object : Callback<List<Category>>{
             override fun onFailure(call: Call<List<Category>>, t: Throwable) {
-                Log.d("my_message", t.message)
+                L(t.message!!)
             }
 
             override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
                 if (response.isSuccessful){
                     val cats : List<Category> = response.body()!!
-                    Log.d("my_message", cats.toString())
+                    L(cats.toString())
                 }else{
-                    Log.d("my_message", "Response Fail")
+                    L("getAllCategories Response Fail")
                 }
             }
         })
