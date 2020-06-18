@@ -58,6 +58,9 @@ class LoginActivity : AppCompatActivity() {
                 val token : Token = response.body()!!
                 USER_TOKEN = token.token
                 L(token.token)
+
+                val intent = Intent(this@LoginActivity, CategoryActivity::class.java)
+                startActivity(intent)
             }
 
         })

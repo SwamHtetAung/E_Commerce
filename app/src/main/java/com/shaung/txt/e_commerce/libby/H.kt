@@ -9,5 +9,9 @@ class H {
         fun L (msg : String){
             Log.d("my_message", msg)
         }
+
+        fun userAuth () : Boolean{
+            return USER_TOKEN != "" // login ဝင်ထားရင် !="" not equal blank ဆိုတာမှန်တဲ့အတွက် return true
+        }
     }
 }
