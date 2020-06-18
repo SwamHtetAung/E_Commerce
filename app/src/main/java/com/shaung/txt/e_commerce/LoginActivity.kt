@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
-        getAllCategories()
+
     }
 
 
@@ -66,27 +66,5 @@ class LoginActivity : AppCompatActivity() {
         })
 
     }
-
-
-    private fun getAllCategories(){
-        val service : WebServices = ServiceBuilder.buildService(WebServices::class.java)
-        val responseCategory : Call<List<Category>> = service.getAllCat()
-
-        responseCategory.enqueue(object : Callback<List<Category>>{
-            override fun onFailure(call: Call<List<Category>>, t: Throwable) {
-                L(t.message!!)
-            }
-
-            override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
-                if (response.isSuccessful){
-                    val cats : List<Category> = response.body()!!
-                    L(cats.toString())
-                }else{
-                    L("getAllCategories Response Fail")
-                }
-            }
-        })
-    }
-
 
 }

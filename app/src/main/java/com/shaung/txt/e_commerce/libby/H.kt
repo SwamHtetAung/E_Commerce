@@ -11,7 +11,7 @@ class H {
         }
 
         fun userAuth () : Boolean{
-            return USER_TOKEN != "" // login ဝင်ထားရင် !="" not equal blank ဆိုတာမှန်တဲ့အတွက် return true
+            return USER_TOKEN == ""
         }
     }
 }
