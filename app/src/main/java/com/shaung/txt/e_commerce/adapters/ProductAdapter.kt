@@ -1,11 +1,13 @@
 package com.shaung.txt.e_commerce.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.shaung.txt.e_commerce.R
+import com.shaung.txt.e_commerce.SingleProductActivity
 import com.shaung.txt.e_commerce.modals.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.product_row.view.*
@@ -31,7 +33,10 @@ class ProductAdapter (val context : Context, val products : List<Product>) : Rec
         holder.itemView.tvPrice.text = product.price.toString()
         holder.itemView.btnDetail.setOnClickListener {
 
-            context.longToast(product.description)
+            val intent = Intent(context, SingleProductActivity::class.java)
+            intent.putExtra("product", product)
+            context.startActivity(intent)
+
         }
     }
 

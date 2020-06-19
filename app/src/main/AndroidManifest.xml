@@ -12,11 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MyCart"></activity>
+        <activity android:name=".SingleProductActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CategoryActivity" />
+        </activity>
         <activity android:name=".SingleCategoryProducts">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CategoryActivity"
-                />
+                android:value=".CategoryActivity" />
         </activity>
         <activity android:name=".CategoryActivity" />
         <activity android:name=".RegisterActivity" />

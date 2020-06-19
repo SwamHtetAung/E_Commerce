@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="buttonBackground">#263238</color>
     <color name="buttonText">#FFFFFF</color>
-    <color name="random">#161A3A</color>
+    <color name="random">#1B214E</color>
+    <color name="random2">#000000</color>
 
 </resources>

@@ -1,5 +1,9 @@
 package com.shaung.txt.e_commerce.modals
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class Product(
     val id : Int,
     val cat_id : Int,
@@ -7,4 +11,4 @@ class Product(
     val price : Int,
     val image : String,
     val description : String
-)
+) : Parcelable
