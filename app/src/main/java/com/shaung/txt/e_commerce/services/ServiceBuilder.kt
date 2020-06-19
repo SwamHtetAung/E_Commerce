@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 
 object ServiceBuilder {
 //  (real android device)
-    private const val BASE_URL = "http://192.168.1.101/72Api-Ecommerce-master/public/api/"
+    private const val BASE_URL = "http://192.168.1.100/72Api-Ecommerce-master/public/api/"
 
 //  (emulator)
 //    private const val BASE_URL = "http://10.0.2.2:8000/api/"

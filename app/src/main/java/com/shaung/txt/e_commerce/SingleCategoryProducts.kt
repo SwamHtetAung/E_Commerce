@@ -3,12 +3,15 @@ package com.shaung.txt.e_commerce
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.shaung.txt.e_commerce.adapters.ProductAdapter
 import com.shaung.txt.e_commerce.libby.H
 import com.shaung.txt.e_commerce.libby.H.Companion.L
 import com.shaung.txt.e_commerce.libby.H.Companion.USER_TOKEN
 import com.shaung.txt.e_commerce.modals.Products
 import com.shaung.txt.e_commerce.services.ServiceBuilder
 import com.shaung.txt.e_commerce.services.WebServices
+import kotlinx.android.synthetic.main.activity_single_category_products.*
 import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,7 +35,8 @@ class SingleCategoryProducts : AppCompatActivity() {
         val catId : String  = bundle.getString("cat_id")!!
         var catName = bundle.get("cat_name")
         supportActionBar?.setTitle("Categories > $catName")
-        toast("$catId")
+//        toast("$catId")
+        singleCategoryProductRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         loadAllProductsOfACategory(catId)
 
     }
@@ -51,6 +55,7 @@ class SingleCategoryProducts : AppCompatActivity() {
                     val prod : Products = response.body()!!
                     val products = prod.products
                     L("There are ${products.size} products here.")
+                    singleCategoryProductRecycler.adapter = ProductAdapter(this@SingleCategoryProducts, products)
                 }else{
                     H.L("Something went wrong!")
                 }
