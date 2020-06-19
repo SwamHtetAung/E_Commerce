@@ -30,6 +30,7 @@ class ProductAdapter (val context : Context, val products : List<Product>) : Rec
         Picasso.get().load(product.image).into(holder.itemView.tvImage)
         holder.itemView.tvPrice.text = product.price.toString()
         holder.itemView.btnDetail.setOnClickListener {
+
             context.longToast(product.description)
         }
     }
