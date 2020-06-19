@@ -60,7 +60,6 @@ class LoginActivity : AppCompatActivity() {
                 L(token.token)
 
                 val intent = Intent(this@LoginActivity, CategoryActivity::class.java)
-
                 startActivity(intent)
             }
 
