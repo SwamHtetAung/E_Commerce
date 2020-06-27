@@ -14,14 +14,31 @@
             android:src="@drawable/gr_supra"
             android:background="@color/buttonText"/>
 
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
             android:id="@+id/productPrice"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/random"
             android:gravity="center"
             android:text="product price"
+            android:layout_weight="1"
             android:textColor="@color/buttonText" />
+
+            <ImageView
+                android:id="@+id/addToCartImage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_shopping_cart"/>
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/whiteLine"

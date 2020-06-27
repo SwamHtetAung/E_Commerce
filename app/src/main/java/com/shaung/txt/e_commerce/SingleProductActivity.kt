@@ -7,6 +7,7 @@ import android.view.Menu
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.MenuItemCompat
+import com.shaung.txt.e_commerce.libby.H
 import com.shaung.txt.e_commerce.modals.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_single_product.*
@@ -24,6 +25,12 @@ class SingleProductActivity : AppCompatActivity() {
         Picasso.get().load(product.image).into(productImage)
         productPrice.text = product.price.toString()
         productDescription.text = product.description.toString()
+
+
+        addToCartImage.setOnClickListener {
+            H.addToCart(product.id)
+            cartCount!!.text = H.getCartCount().toString()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
