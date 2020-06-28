@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="330dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FF161A3A"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Product Title"
+        android:textColor="@color/buttonText"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/tvImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/gr_supra" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/random">
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="GR_Surpra = $40000"
+            android:textColor="@color/buttonText" />
+
+        <Button
+            android:id="@+id/btnDetail"
+            android:background="@drawable/rounded_button_corner"
+            android:backgroundTint="@color/buttonBackground"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/buttonText"
+            android:gravity="center"
+            android:text="See Detail"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

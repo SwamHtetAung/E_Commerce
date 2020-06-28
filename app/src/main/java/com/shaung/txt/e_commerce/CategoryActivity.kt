@@ -73,6 +73,8 @@ class CategoryActivity : AppCompatActivity() {
         cartCount = cartView?.findViewById(R.id.cartCount)
         val cartImage : ImageView? = cartView?.findViewById(R.id.cartImage)
 
+        cartCount!!.text = H.getCartCount().toString()
+
         cartImage?.setOnClickListener {
             startActivity(Intent(this@CategoryActivity, MyCart::class.java))
         }
